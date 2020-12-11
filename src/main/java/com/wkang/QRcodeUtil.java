@@ -18,9 +18,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Auther: wangkang
- * @Date: 2020/7/2 20:16
- * @Description: 二维码生成工具
+ *  wangkang
+ *  2020/7/2 20:16
+ *  二维码生成工具
  */
 public class QRcodeUtil {
     public static byte[] createQRcode(String url) {

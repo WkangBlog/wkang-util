@@ -19,8 +19,8 @@ public class StringHelper {
 	
 	/**
 	 * 判断一个字符串是否不为null或""，如果为null或空则返回false，反之true
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 字符串
 	 */
 	public static boolean isNotNull(String str)
 	{
@@ -56,7 +56,7 @@ public class StringHelper {
 	}
 	
 	 /** 
-	 * @Description 将字符串中的emoji表情转换成可以在utf-8字符集数据库中保存的格式（表情占4个字节，需要utf8mb4字符集） 
+	 *  将字符串中的emoji表情转换成可以在utf-8字符集数据库中保存的格式（表情占4个字节，需要utf8mb4字符集）
 	 * @param str 
 	 *            待转换字符串 
 	 * @return 转换后字符串 
@@ -86,11 +86,11 @@ public class StringHelper {
 	}
 	
 	/** 
-	 * @Description 还原utf8数据库中保存的含转换后emoji表情的字符串 
+	 *  还原utf8数据库中保存的含转换后emoji表情的字符串
 	 * @param str 
 	 *            转换后的字符串 
 	 * @return 转换前的字符串 
-	 * @throws UnsupportedEncodingException 
+	 * @throws UnsupportedEncodingException  字符串
 	 *             exception 
 	 */  
 	public static String emojiRecovery(String str)  
@@ -116,7 +116,7 @@ public class StringHelper {
 	/**
 	  * java生成随机数字和字母组合
 	  * @param length 生成随机数的长度
-	  * @return
+	  * @return 字符串
 	  */
 	 public static String getCharAndNumr(int length) {
 	  String val = "";

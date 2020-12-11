@@ -13,8 +13,8 @@ public class MD5Util {
        
     /**   
      * 将16进制字符串转换成字节数组   
-     * @param hex   
-     * @return   
+     * @param hex    字符串
+     * @return   字符串
      */  
     public static byte[] hexStringToByte(String hex) {   
         int len = (hex.length() / 2);   
@@ -31,8 +31,8 @@ public class MD5Util {
        
     /**  
      * 将指定byte数组转换成16进制字符串  
-     * @param b  
-     * @return  
+     * @param b   字符串
+     * @return  v
      */  
     public static String byteToHexString(byte[] b) {   
         StringBuffer hexString = new StringBuffer();   
@@ -48,8 +48,8 @@ public class MD5Util {
        
     /**  
      * 验证口令是否合法  
-     * @param password  
-     * @param passwordInDb  
+     * @param password  字符串
+     * @param passwordInDb  字符串
      * @return  
      * @throws NoSuchAlgorithmException  
      * @throws UnsupportedEncodingException  
@@ -87,10 +87,10 @@ public class MD5Util {
   
     /**  
      * 获得加密后的16进制形式口令  
-     * @param password  
-     * @return  
-     * @throws NoSuchAlgorithmException  
-     * @throws UnsupportedEncodingException  
+     * @param password  字符串
+     * @return  字符串
+     * @throws NoSuchAlgorithmException  字符串
+     * @throws UnsupportedEncodingException  字符串
      */  
     public static String getEncryptedPwd(String password)   
             throws NoSuchAlgorithmException, UnsupportedEncodingException {   

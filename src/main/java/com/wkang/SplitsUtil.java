@@ -2,7 +2,6 @@ package com.wkang;
 
 /**
  * 分割英语单词中的字母与数字工具类
- * @author Administrator
  *
  */
 public class SplitsUtil {

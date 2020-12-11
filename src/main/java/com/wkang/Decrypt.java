@@ -30,7 +30,7 @@ public class Decrypt {
 	 * @param filePath  //解密后文件的位置
 	 * @param fileName  //源文件的名字
 	 * @param password //密码
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public static void decode(String tfilePath, String filePath, String fileName, String password) throws Exception {
 		File file = new File(tfilePath, fileName); // 源文件
@@ -44,9 +44,9 @@ public class Decrypt {
 	/**
 	 * 流写入本地文件
 	 * 
-	 * @param destination
-	 * @param input
-	 * @throws IOException
+	 * @param destination 异常
+	 * @param input 异常
+	 * @throws IOException 异常
 	 */
 	private static void writeToLocal(String destination, InputStream input, String password) throws IOException {
 

@@ -19,8 +19,8 @@ public class MiMD5 {
     /**
      * 计算字符串MD5值
      *
-     * @param string
-     * @return
+     * @param string 字符串
+     * @return 字符串
      */
     public static String md5(String string) {
         if (string==null||string.equals("")) {
@@ -49,8 +49,8 @@ public class MiMD5 {
     /**
      * 计算文件的 MD5 值
      *
-     * @param file
-     * @return
+     * @param file 字符串
+     * @return 字符串
      */
     public static String md5(File file) {
         if (file == null || !file.isFile() || !file.exists()) {
@@ -92,8 +92,8 @@ public class MiMD5 {
     /**
      * 采用nio的方式,计算文件的 MD5 值
      *
-     * @param file
-     * @return
+     * @param file 字符串
+     * @return 字符串
      */
     public static String md5Nio(File file) {
         String result = "";
@@ -128,9 +128,9 @@ public class MiMD5 {
     /**
      * 对字符串多次MD5加密
      *
-     * @param string
-     * @param times
-     * @return
+     * @param string 字符串
+     * @param times 字符串
+     * @return 字符串
      */
     public static String md5(String string, int times) {
         if (string==null||string.equals("")) {
@@ -153,9 +153,9 @@ public class MiMD5 {
      * 用string明文的hashcode作为盐，然后进行MD5加密
      * 随机生成一串字符串作为盐，然后进行MD5加密
      *
-     * @param string
-     * @param slat
-     * @return
+     * @param string 字符串
+     * @param slat 字符串
+     * @return 字符串
      */
     public static String md5(String string, String slat) {
         if (string==null||string.equals("")) {
