@@ -3,7 +3,6 @@ package com.wkang.security.encrypt.md5;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
@@ -14,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
  * Created by wk on 2018/8/6.
  */
 
-public class MiMD5 {
+public class KMD5 {
 
     /**
      * 计算字符串MD5值
@@ -179,9 +178,4 @@ public class MiMD5 {
         }
         return "";
     }
- // 测试主函数  
-    public static void main(String args[]) throws NoSuchAlgorithmException, UnsupportedEncodingException {   
-        System.out.println("加密="+md5("123456",1));
-  
-    }  
 }

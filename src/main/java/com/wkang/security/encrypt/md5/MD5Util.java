@@ -14,7 +14,7 @@ public class MD5Util {
     /**   
      * 将16进制字符串转换成字节数组   
      * @param hex    字符串
-     * @return   字符串
+     * @return   字节数组
      */  
     public static byte[] hexStringToByte(String hex) {   
         int len = (hex.length() / 2);   
@@ -31,8 +31,8 @@ public class MD5Util {
        
     /**  
      * 将指定byte数组转换成16进制字符串  
-     * @param b   字符串
-     * @return  v
+     * @param b   byte数组
+     * @return  字符串
      */  
     public static String byteToHexString(byte[] b) {   
         StringBuffer hexString = new StringBuffer();   
@@ -48,11 +48,11 @@ public class MD5Util {
        
     /**  
      * 验证口令是否合法  
-     * @param password  字符串
-     * @param passwordInDb  字符串
-     * @return  
-     * @throws NoSuchAlgorithmException  
-     * @throws UnsupportedEncodingException  
+     * @param password  源密码
+     * @param passwordInDb  密码
+     * @return  是否合法
+     * @throws NoSuchAlgorithmException  异常
+     * @throws UnsupportedEncodingException  异常
      */  
     public static boolean validPassword(String password, String passwordInDb)   
             throws NoSuchAlgorithmException, UnsupportedEncodingException {   
@@ -87,10 +87,10 @@ public class MD5Util {
   
     /**  
      * 获得加密后的16进制形式口令  
-     * @param password  字符串
-     * @return  字符串
-     * @throws NoSuchAlgorithmException  字符串
-     * @throws UnsupportedEncodingException  字符串
+     * @param password  密码
+     * @return  密文
+     * @throws NoSuchAlgorithmException  异常
+     * @throws UnsupportedEncodingException  编码异常
      */  
     public static String getEncryptedPwd(String password)   
             throws NoSuchAlgorithmException, UnsupportedEncodingException {   
@@ -124,15 +124,11 @@ public class MD5Util {
         return byteToHexString(pwd);   
     }   
 
-    
-    
-    
-    
-    
-    
-    /*** 
-     * MD5加码 生成32位md5码 
-     */  
+    /**
+     * MD5加密 生成32位md5码
+     * @param inStr 字符串
+     * @return 密文
+     */
     public static String string2MD5(String inStr){  
         MessageDigest md5 = null;  
         try{  
@@ -159,7 +155,9 @@ public class MD5Util {
   
     }
     /***
-     * MD5加码 生成16位md5码
+     * MD5加密 生成16位md5码
+     * @param inStr 字符串
+     * @return 密文
      */
     public static String string2MD5_16(String inStr){
         return string2MD5(inStr).substring(8, 24);
@@ -167,7 +165,9 @@ public class MD5Util {
     }
 
     /** 
-     * 加密解密算法 执行一次加密，两次解密 
+     * 异或加密解密算法 执行一次加密，两次解密
+     * @param inStr 字符串
+     * @return 密文
      */   
     public static String convertMD5(String inStr){  
   
@@ -178,17 +178,5 @@ public class MD5Util {
         String s = new String(a);  
         return s;  
   
-    }  
-  
-    // 测试主函数  
-    public static void main(String args[]) throws NoSuchAlgorithmException, UnsupportedEncodingException {  
-        String s = new String("tangfuqiang");  
-        System.out.println("原始：" + s);  
-        System.out.println("MD5后：" + string2MD5(s));  
-        System.out.println("加密的：" + convertMD5(s));  
-        System.out.println("解密的：" + convertMD5(convertMD5(s)));  
-        System.out.println("加密="+getEncryptedPwd("MiMouse2017"));
-  
-    }  
-
+    }
 }

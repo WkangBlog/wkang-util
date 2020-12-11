@@ -1,31 +1,15 @@
-package com.wkang;
+package com.wkang.security;
 
 import java.io.*;
 
 /**
- * 加解密工具：第一次加密，执行第二次解密
+ * 加解密工具：第一次加密，执行第二次解密（异或算法）
+ * wkang
+ * 2020/12/11 16:25
  */
-public class Decrypt {
-	public static void main(String[] args) {
-		String filePath = "D:\\1\\";
-		String newPath = "D:\\2\\";
-		String password = "XuChengliang616550562";// FengHaihongAndMaoDeping
-													// MiMouse2016
-		try {
-			//test(filePath, newPath, password);
-			//decode(filePath, newPath, "new_usersystemprograms.mi",password);
-			String s = decodeText("{\"timestamp\":\"12346\",\"appkey\":\"6EC91F3C7DB58EF58C97742EF4268E66\"}","mimouse_sign_2019_1_16_13_23");
-			System.out.print( s );
-			String b = decodeText(s,"mimouse_sign_2019_1_16_13_23");
-			System.out.print( "#"+b);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
+public class KDecrypt {
 	/**
-	 *  解密
+	 *  文件加密与解密
 	 * @param tfilePath //源文件的位置
 	 * @param filePath  //解密后文件的位置
 	 * @param fileName  //源文件的名字
@@ -36,16 +20,14 @@ public class Decrypt {
 		File file = new File(tfilePath, fileName); // 源文件
 		InputStream is = new FileInputStream(file);
 		writeToLocal(filePath + File.separator + fileName, is, password); // 要解密的文件
-		System.out.println("解密结束");
 		is.close();
-
 	}
 
 	/**
 	 * 流写入本地文件
 	 * 
-	 * @param destination 异常
-	 * @param input 异常
+	 * @param destination 路径
+	 * @param input 文件流
 	 * @throws IOException 异常
 	 */
 	private static void writeToLocal(String destination, InputStream input, String password) throws IOException {
@@ -126,6 +108,12 @@ public class Decrypt {
 		downloadFile.close();
 	}
 
+    /**
+     * 加密文本
+     * @param text 文本
+     * @param password 密码
+     * @return 密文或原文
+     */
 	public static String decodeText(String text, String password){
 		byte[] pwdChars = password.getBytes();
 		byte[] textChars = text.getBytes();

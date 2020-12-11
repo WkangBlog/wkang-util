@@ -24,6 +24,11 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.deploy.skip>true</maven.deploy.skip>
+
+        <javax-mail.version>1.6.0</javax-mail.version>
+        <commons-lang3.version>3.6</commons-lang3.version>
+        <httpmime.version>4.4.1</httpmime.version>
+        <common-collection.version>3.2.2</common-collection.version>
     </properties>
     <dependencies>
         <!--谷歌二维码生成器依赖-->
@@ -37,14 +42,31 @@
             <artifactId>javase</artifactId>
             <version>3.3.3</version>
         </dependency>
+        <!--邮箱依赖-->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>${javax-mail.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+        <!-- http相关 -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>${httpmime.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${common-collection.version}</version>
+        </dependency>
     </dependencies>
     <!-- 许可证信息 -->
     <licenses>
-        <!-- Apache许可证 -->
-        <!--<license>-->
-            <!--<name>The Apache Software License, Version 2.0</name>-->
-            <!--<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>-->
-        <!--</license>-->
         <!-- MIT许可证 -->
         	<license>
                 <name>MIT License</name>

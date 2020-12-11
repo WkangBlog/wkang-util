@@ -1,4 +1,4 @@
-package com.wkang;
+package com.wkang.QRcode;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -18,11 +18,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  wangkang
- *  2020/7/2 20:16
  *  二维码生成工具
+ *  wkang
+ *  2020/7/2 20:16
  */
-public class QRcodeUtil {
+public class KQRcode {
+    /**
+     * 二维码生成
+     * @param url 链接
+     * @return 二维码图片
+     */
     public static byte[] createQRcode(String url) {
         int width = 300;
         int height = 300;
@@ -39,20 +44,11 @@ public class QRcodeUtil {
         try {
             // 生成二维码对象，传入参数：内容、码的类型、宽高、配置
             BufferedImage bufferedImage = getQRCODEBufferedImage(url, BarcodeFormat.QR_CODE, width, height, hints);
-
-//			BitMatrix bitMatrix =  new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, width, height, hints);
-            // 定义一个路径对象
-//			Path file = new File("D:/learn/code.png").toPath();
-//			// 生成二维码，传入二维码对象、生成图片的格式、生成的路径
-//			MatrixToImageWriter.writeToPath(bitMatrix, type, file);
-//			BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
             String logUri = "classpath:caption_task/img/mslogo.png";
             bufferedImage = setMatrixLogo(bufferedImage, logUri);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ImageIO.write(bufferedImage, type, byteArrayOutputStream);
             byte[] bytes = byteArrayOutputStream.toByteArray();
-//			System.out.println(bytes.length);
-            // TODO 保存二维码
             return bytes;
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,14 +57,10 @@ public class QRcodeUtil {
     }
 
     public static BufferedImage setMatrixLogo(BufferedImage matrixImage,String logUri) throws IOException{
-        /**
-         * 读取二维码图片，并构建绘图对象
-         */
+         //读取二维码图片，并构建绘图对象
         Graphics2D g2 = matrixImage.createGraphics();
         int matrixWidth = matrixImage.getWidth();
         int matrixHeigh = matrixImage.getHeight();
-//		File file = ResourceUtils.getFile("");
-//		BufferedImage logo = ImageIO.read(file);//读取logo图片
         URL url = new URL("http://mic.mimouse.net/img/mslogo.png"); //声明url对象
         URLConnection connection = url.openConnection(); //打开连接
         connection.setDoOutput(true);
