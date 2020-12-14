@@ -1,6 +1,5 @@
 # wkang-util
 ## 目录
-- [说明](#说明)
 - [导入项目](#导入项目)
 - [工具类介绍](#工具类介绍)
     - [file(文件处理)](#文件处理)
@@ -20,16 +19,13 @@
         - [LangArabicNumConvertUtil(语言数字与阿拉伯数字转换工具类)](#langarabicnumconvertutil语言数字与阿拉伯数字转换工具类)
         - [DateUtil(时间转换工具类)](#dateutil时间转换工具类)
         - [EncodeDecodeUtil(编码与解码工具类)](#encodedecodeutil编码与解码工具类)
-        - [BigDecimalUtil(BigDecimal计算工具类)](#bigdecimalutilbigdecimal计算工具类)
-        - [RegexUtil(正则工具类)](#regexutil正则工具类)
         - [LanguageUtil(语言工具类)](#languageutil语言工具类)
+        - [RegexUtil(正则工具类)](#regexutil正则工具类)
         - [StringUtil(字符串工具类)](#stringutil字符串工具类)
     - [others(其他工具类)](#其他工具类)
+        - [BigDecimalUtil(BigDecimal计算工具类)](#bigdecimalutilbigdecimal计算工具类)
         - [DeepCopyUtil(深拷贝工具类)](#deepcopyutil深拷贝工具类)
-        - [CaptchaUtil(验证码工具类)](#captchautil验证码工具类)
     
-## 说明
-目前部分代码来自开源项目[CommonUtil](https://github.com/LJWLgl/CommonUtil#LangArabicNumConvertUtil)，对其中不常用做了删减，并添加了自己用的工具类
 ## maven引用
 ```
 <dependency>
@@ -74,7 +70,7 @@ EmailUtil.config(EmailUtil.SMTP_QQ(false), "xxx@qq.com", "xxxxxx");
 - **byte[] createQRcode(String url)**，创建二维码
     
 ### **加密解密工具类**
-#### **KMD5(MD5工具类)**
+#### **KMD5工具类**
 - **String md5(String string)**，计算字符串MD5值
 - **String md5(File file)**，计算文件的 MD5 值
 - **String md5Nio(File file)**，采用nio的方式,计算文件的 MD5 值
