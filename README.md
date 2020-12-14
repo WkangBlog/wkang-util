@@ -39,13 +39,13 @@
 </dependency>
 ```
 ## 工具类介绍
-### **file(文件处理)**
-#### **GZIPUtil(通过Gzip算法压缩和解压)**
-- **compress(String str)**，字符串压缩为GZIP字节数组
-- **compress(String str, String encoding)**，字符串压缩为GZIP字节数组
-- **uncompress(byte[] bytes)**，GZIP解压缩
+### **文件处理**
+- **GZIPUtil(通过Gzip算法压缩和解压)**
+    - **compress(String str)**，字符串压缩为GZIP字节数组
+    - **compress(String str, String encoding)**，字符串压缩为GZIP字节数组
+    - **uncompress(byte[] bytes)**，GZIP解压缩
 
-### **network(网络访问及数据格式处理)**
+### **网络访问及数据格式处理**
 - **EmailUtil(邮件发送工具类)**
 ```java
 // 发送邮箱配置，授权密码可以去邮件运营商获取
@@ -69,11 +69,11 @@ EmailUtil.config(EmailUtil.SMTP_QQ(false), "xxx@qq.com", "xxxxxx");
     - **<T> T xml2JBean(Class<?> clazz, InputStream in)**，将xml实例化为T类型实例
     - **void jBean2Xml(Object instance, OutputStream out)**，将配置类实例instance解析为xml
 
-### **QRcode(二维码)**
+### **二维码**
 - **KQRcodel(二维码生成工具类)**
     - **byte[] createQRcode(String url)**，创建二维码
     
-### **security(加密解密工具类)**
+### **加密解密工具类**
 - **KMD5(MD5工具类)**
     - **String md5(String string)**，计算字符串MD5值
     - **String md5(File file)**，计算文件的 MD5 值
@@ -89,7 +89,7 @@ EmailUtil.config(EmailUtil.SMTP_QQ(false), "xxx@qq.com", "xxxxxx");
     - **String getEncryptedPwd(String password)**，加密
     - **boolean validPassword(String password, String encpassword)**，密码对比
       
-### **string(字符串工具类)**
+### **字符串工具类**
 - **LangArabicNumConvertUtil(语言数字与阿拉伯数字转换工具类)**
     - **String lang2ArabicNumber(String word, String majorLocale)**，将语言数字转成阿拉伯数字，目前只支持英语和中文的转换（参数说明，majorLocale：中文zh或英语en）
     - **String arabic2LangNumber(String word, String majorLocale)**，将阿拉伯数字转成语言数字，会转成带进制的语言数字
@@ -150,7 +150,7 @@ EmailUtil.config(EmailUtil.SMTP_QQ(false), "xxx@qq.com", "xxxxxx");
     - **double castDouble(Object obj, double defaultValue)**，转为double类型 ，如果obj为null或者空字符串或者格式不对则返回defaultValue
     - **double cast...(Object obj, double defaultValue)**，转换成对应的基础类型
     
-### **others(其他工具类)**
+### **其他工具类**
 - **BigDecimalUtil(BigDecimal计算工具类)**
 在和钱打交道的服务里，经常会用到BigDecimal类，下面提供一些他的计算方法
     - **subtract(double x, double y)**
