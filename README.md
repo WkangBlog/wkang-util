@@ -40,13 +40,13 @@
 ```
 ## 工具类介绍
 ### **文件处理**
-- **GZIPUtil(通过Gzip算法压缩和解压)**
+- **gziputil通过gzip算法压缩和解压**
     - **compress(String str)**，字符串压缩为GZIP字节数组
     - **compress(String str, String encoding)**，字符串压缩为GZIP字节数组
     - **uncompress(byte[] bytes)**，GZIP解压缩
 
 ### **网络访问及数据格式处理**
-- **EmailUtil(邮件发送工具类)**
+- **emailutil邮件发送工具类**
 ```java
 // 发送邮箱配置，授权密码可以去邮件运营商获取
 EmailUtil.config(EmailUtil.SMTP_QQ(false), "xxx@qq.com", "xxxxxx");
