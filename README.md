@@ -4,6 +4,7 @@
 - [工具类介绍](#工具类介绍)
     - [file(文件处理)](#文件处理)
         - [GZIPUtil(通过Gzip算法压缩和解压)](#gziputil通过gzip算法压缩和解压)
+        - [FileCommonUtil(文件通用工具类)](#FileCommonUtil(文件通用工具类))
     - [network(网络访问及数据格式处理)](#网络访问及数据格式处理)
         - [EmailUtil(邮件发送工具类)](#emailutil邮件发送工具类)
         - [HttpUtil(http请求工具类)](#httputilhttp请求工具类)
@@ -15,6 +16,7 @@
         - [KMD5(MD5工具类)](#KMD5工具类)
         - [KDecrypt(异或工具类)](#KDecrypt异或工具类)
         - [KSecurity(通用加密工具类)](#KSecurity通用加密工具类)
+        - [RsaUtils(rsa加密解密工具类)](#RsaUtils(rsa加密解密工具类))
     - [string(字符串工具类)](#字符串工具类)
         - [LangArabicNumConvertUtil(语言数字与阿拉伯数字转换工具类)](#langarabicnumconvertutil语言数字与阿拉伯数字转换工具类)
         - [DateUtil(时间转换工具类)](#dateutil时间转换工具类)
@@ -40,7 +42,9 @@
 - **compress(String str)**，字符串压缩为GZIP字节数组
 - **compress(String str, String encoding)**，字符串压缩为GZIP字节数组
 - **uncompress(byte[] bytes)**，GZIP解压缩
-
+#### **FileCommonUtil(文件通用工具类)**
+- **byte[] readFile(String filePath)**，从路径中读取文件
+- **void writeFile(String destPath, byte[] bytes)**，将文件写入指定文件路径
 ### **网络访问及数据格式处理**
 #### **emailutil邮件发送工具类**
 ```java
@@ -84,6 +88,16 @@ EmailUtil.config(EmailUtil.SMTP_QQ(false), "xxx@qq.com", "xxxxxx");
 #### **KSecurity(通用加密工具类)**
 - **String getEncryptedPwd(String password)**，加密
 - **boolean validPassword(String password, String encpassword)**，密码对比
+
+#### **RsaUtils(rsa加密解密工具类)**
+- **PublicKey getPublicKey(String filename)**，从文件中读取公钥
+- **PrivateKey getPrivateKey(String filename)**，从文件中读取密钥
+- **PublicKey getPublicKey(byte[] bytes)**，获取公钥
+- **PrivateKey getPrivateKey(byte[] bytes)**，获取密钥
+- **void generateKey(String publicKeyFilename, String privateKeyFilename, String secret)**，根据密文，生存rsa公钥和私钥,并写入指定文件
+- **Map<String, String> genKeyPair()**，随机生成密钥对
+- **String encrypt( String str, String publicKey )**，RSA公钥加密
+- **String decrypt(String str, String privateKey)**，RSA私钥解密
       
 ### **字符串工具类**
 #### **LangArabicNumConvertUtil(语言数字与阿拉伯数字转换工具类)**

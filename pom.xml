@@ -10,11 +10,11 @@
     </parent>
     <groupId>com.github.wkangblog</groupId>
     <artifactId>wkang-util</artifactId>
-    <version>1.0.1-RELEASE</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>The test uploads the jar to the maven central repository</description>
+    <description>A common Java util</description>
     <url>https://github.com/WkangBlog/wkang-util</url>
 
     <properties>
@@ -64,6 +64,16 @@
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>${common-collection.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.1</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
