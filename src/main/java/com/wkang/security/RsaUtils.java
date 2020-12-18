@@ -155,23 +155,4 @@ public class RsaUtils {
         cipher.init(Cipher.DECRYPT_MODE, priKey);
         return new String(cipher.doFinal(inputByte));
     }
-
-    public static void main(String[] args) throws Exception {
-        String publickKeyFilename = "C:/Users/123/Desktop/rsa.pub";
-        String privateKeyFilename = "C:/Users/123/Desktop/rsa.pri";
-//        String secret = "";
-//        generateKey(publickKeyFilename, privateKeyFilename, secret);
-
-        String message = "{\"userId\"=9,\"timestamp\"=\"2019-04-22 09:55:38\",\"appkey\"=\"6EC91F3C7DB58EF58C97742EF4268E66\"}";
-        PublicKey publicKey = getPublicKey(publickKeyFilename);
-        System.out.println("publicKey = " + publicKey);
-
-        PrivateKey privateKey = getPrivateKey(privateKeyFilename);
-        System.out.println("privateKey = " + privateKey);
-
-        String messageEn = encrypt(message,new String(Base64.encodeBase64(publicKey.getEncoded())));
-        System.out.println("加密后的字符串为:" + messageEn);
-        String messageDe = decrypt(messageEn,new String(Base64.encodeBase64((privateKey.getEncoded()))));
-        System.out.println("还原后的字符串为:" + messageDe);
-    }
 }
