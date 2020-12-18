@@ -33,7 +33,7 @@
 <dependency>
       <groupId>com.github.wkangblog</groupId>
       <artifactId>wkang-util</artifactId>
-      <version>1.0.1-RELESE</version>
+      <version>1.0.3</version>
 </dependency>
 ```
 ## 工具类介绍
