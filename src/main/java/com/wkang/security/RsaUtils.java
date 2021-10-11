@@ -1,5 +1,6 @@
 package com.wkang.security;
 import com.wkang.file.FileCommonUtil;
+import com.wkang.string.EncodeDecodeUtil;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;
@@ -154,5 +155,30 @@ public class RsaUtils {
         Cipher cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.DECRYPT_MODE, priKey);
         return new String(cipher.doFinal(inputByte));
+    }
+
+    protected static byte[] stringToBytes(String data) {
+        String[] strArr = data.split(" ");
+        int len = strArr.length;
+        byte[] clone = new byte[len];
+        for (int i = 0; i < len; i++) {
+            clone[i] = Byte.parseByte(strArr[i]);
+        }
+
+        return clone;
+    }
+
+    public static void main(String[] args) {
+        String key ="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQChL7K6aDixZaO9I/JkR16l0OHJ\n" +
+                "K2KptqEGB/LkAkalyhTrD6BZQ9+KxdMt6UZAoF1klsUcdNyi9dxdH0SpvKsFgxDM\n" +
+                "CuO2VnAkqi1lJtvLQnj5soDXaX0RZuZWAemsZ0hP5cmM9mCZYuZV+jD/qQSFZQff\n" +
+                "lo7ibEK8H5bnFWoCRwIDAQAB";
+        String str ="{\"time\":1612158628923,\"key\":\"1234lm\"}";
+        try {
+            String s = encrypt(str,key);
+            System.out.print(EncodeDecodeUtil.encodeBase64(s));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

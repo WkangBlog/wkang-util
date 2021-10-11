@@ -21,16 +21,18 @@ import java.util.Map;
  *  二维码生成工具
  *  wkang
  *  2020/7/2 20:16
+ *  update 2021/10/11
  */
 public class KQRcode {
     /**
      * 二维码生成
+     * @param width 宽度，建议使用300
+     * @param height 高度，建议使用300
      * @param url 链接
+     * @param logoUrl logo链接
      * @return 二维码图片
      */
-    public static byte[] createQRcode(String url) {
-        int width = 300;
-        int height = 300;
+    public static byte[] createQRcode(int width,int height, String url,String logoUrl) {
         String type = "png";
         // 定义二维码的配置，使用HashMap
         HashMap hints = new HashMap();
@@ -44,8 +46,7 @@ public class KQRcode {
         try {
             // 生成二维码对象，传入参数：内容、码的类型、宽高、配置
             BufferedImage bufferedImage = getQRCODEBufferedImage(url, BarcodeFormat.QR_CODE, width, height, hints);
-            String logUri = "classpath:caption_task/img/mslogo.png";
-            bufferedImage = setMatrixLogo(bufferedImage, logUri);
+            bufferedImage = setMatrixLogo(bufferedImage, logoUrl);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ImageIO.write(bufferedImage, type, byteArrayOutputStream);
             byte[] bytes = byteArrayOutputStream.toByteArray();
@@ -56,16 +57,18 @@ public class KQRcode {
         return new byte[0];
     }
 
-    public static BufferedImage setMatrixLogo(BufferedImage matrixImage,String logUri) throws IOException{
+    public static BufferedImage setMatrixLogo(BufferedImage matrixImage,String logoUrl) throws IOException{
          //读取二维码图片，并构建绘图对象
         Graphics2D g2 = matrixImage.createGraphics();
         int matrixWidth = matrixImage.getWidth();
         int matrixHeigh = matrixImage.getHeight();
-        URL url = new URL("http://mic.mimouse.net/img/mslogo.png"); //声明url对象
-        URLConnection connection = url.openConnection(); //打开连接
-        connection.setDoOutput(true);
-        BufferedImage logo = ImageIO.read(connection.getInputStream());
-//        logo = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_sRGB), null).filter(logo, null);
+        BufferedImage logo = null;
+        if (logoUrl != null){
+            URL url = new URL(logoUrl); //声明url对象
+            URLConnection connection = url.openConnection(); //打开连接
+            connection.setDoOutput(true);
+            logo = ImageIO.read(connection.getInputStream());
+        }
 
         //开始绘制图片前两个、/5*2/5*2 后/5
         g2.drawImage(logo,matrixWidth/5*2,matrixHeigh/5*2, matrixWidth/5, matrixHeigh/5, null);
